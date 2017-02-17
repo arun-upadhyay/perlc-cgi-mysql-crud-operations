@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/effects.js"></script>
+
+<title>Appointment Form</title
+</head>
+<body>
+<div class="container">
+<br>
+<br>
+<p>
+<button type="button" id="show" class="btn btn-primary">NEW</button>
+</p>
+<div id="add-form">
+    <h2> Add form </h2>
+    <form method="post" name="addForm" action="http://localhost/perl/add.cgi" onsubmit="return validateForm()">
+    <table class="table table-striped">
+	 <tr>
+             <td><input type="submit" name="submit" value=" ADD " /></td>
+			 <td><button id="hide">CANCEL</button></td>
+        </tr>
+        <tr>
+            <td >Date</td>
+            <td><input name="Date" type="text" id ="datepicker" style="width: 300px;"/></td>
+			<td> <span id="errorDate" style=""> </span></td> 
+        </tr>
+
+        <tr>
+            <td >Time</td>
+            <td><input name="Time" type="text" style="width: 300px;"/></td>
+			<td> <span id="errorTime"> </span></td> 
+        </tr>
+
+        <tr>
+            <td >Description</td>
+            <td>
+			<textarea name="Description" rows="4" cols="50" >
+			</textarea>
+			</td>
+			<td> <span id="errorDescription"> </span></td> 
+        </tr>
+	</table>
+    </form>
+	<br /> 
+	
+</div>
+<div id="search-form" >	
+		<input name="searchinfo" type="text" id ="searchvalueType" style="width: 300px;"/>
+		<button id="searchbttn">Search</button>		
+</div>
+<div id="search-result">
+</div>
+	
+</div>
+<p>
+<center> Code with written by <a href="http://arunupadhayay.com.np/" target="_blank"> Arun Kumar Upadhyay </a> <center> 
+</p>
+
+</body>
+</html>

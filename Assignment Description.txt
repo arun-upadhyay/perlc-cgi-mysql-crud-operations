@@ -1,0 +1,10 @@
+Technologies Used:
+Front-End:
+1. CSS
+2. Bootstrap
+3. JavaScript
+4. JQuery
+Back-End
+1. PERL-CGI
+2. MYSQL
+3. Apache (XAMPP)
