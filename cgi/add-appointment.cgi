@@ -29,5 +29,4 @@ $sth->execute() or die $DBI::errstr;
 $sth->finish();
 # redirect to home page
 print "<META HTTP-EQUIV=refresh CONTENT=\"1;URL=../index.html\">\n";
-$dbh->commit or die $DBI::errstr;
 
