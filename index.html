@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html ng-app="myApp">
+<html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 </p>
 <div id="add-form">
     <h2> Add form </h2>
-    <form method="post" name="addForm" action="http://localhost/perl/add.cgi" onsubmit="return validateForm()">
+    <form method="post" name="addForm" action="/perl/cgi/add-appointment.cgi" onsubmit="return validateForm()">
     <table class="table table-striped">
 	 <tr>
              <td><input type="submit" name="submit" value=" ADD " /></td>
@@ -31,13 +31,13 @@
         </tr>
         <tr>
             <td >Date</td>
-            <td><input name="Date" type="text" id ="datepicker" style="width: 300px;"/></td>
+            <td><input name="Date" type="text" id ="datepicker" /></td>
 			<td> <span id="errorDate" style=""> </span></td> 
         </tr>
 
         <tr>
             <td >Time</td>
-            <td><input name="Time" type="text" style="width: 300px;"/></td>
+            <td><input name="Time" type="text" /></td>
 			<td> <span id="errorTime"> </span></td> 
         </tr>
 
@@ -55,9 +55,12 @@
 	
 </div>
 <div id="search-form" >	
-		<input name="searchinfo" type="text" id ="searchvalueType" style="width: 300px;"/>
-		<button id="searchbttn">Search</button>		
+		<form action="post" onsubmit="return getAppointments()"> 
+		<input name="searchinfo" type="text" id ="searchvalueType" style="width: 300px;"/>	
+		<input type="submit" name="submit" id="searchbttn" />
+		</form>
 </div>
+
 <div id="search-result">
 </div>
 	

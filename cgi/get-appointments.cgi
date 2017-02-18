@@ -13,10 +13,9 @@ my $dsn = "DBI:$driver:database=$database";
 my $userid = "root";
 my $password = "root";
 my $dbh = DBI->connect($dsn, $userid, $password ) or die $DBI::errstr;
-my $sqlc = "SELECT dt, tm, des FROM appointments where des like '%".$id."%' or tm like '%".$id."%' or dt like '%".$id."%' "; 
+my $sqlc = "SELECT dt, tm, des FROM appointments where des like '%".$id."%'"; 
 my $sth = $dbh->prepare($sqlc);
 $sth->execute;
-
 while ( my $row = $sth->fetchrow_hashref ){
     push @output, $row;
 }

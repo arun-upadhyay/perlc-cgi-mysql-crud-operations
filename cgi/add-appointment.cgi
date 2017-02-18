@@ -8,10 +8,10 @@ my $q = CGI::Vars();
 my $dt = $q->{Date};
 my $tm = $q->{Time};
 my $des = $q->{Description};
-#remove trailing spaces 
-#$dt= ~ s/^\s+|\s+$//g ; 
-#$tm= ~ s/^\s+|\s+$//g ; 
-#$des= ~ s/^\s+|\s+$//g ; 
+#remove trailing spaces using regular expression
+$dt =~ s/^\s*(.*?)\s*$/$1/;
+$tm =~ s/^\s*(.*?)\s*$/$1/;
+$des =~ s/^\s*(.*?)\s*$/$1/;
 #Database operation using perl
 my $driver = "mysql"; 
 my $database = "appointmentdb";
@@ -28,6 +28,6 @@ my $sth = $dbh->prepare("INSERT INTO appointments
 $sth->execute() or die $DBI::errstr;
 $sth->finish();
 # redirect to home page
-print "<META HTTP-EQUIV=refresh CONTENT=\"1;URL=../perl/index.html\">\n";
+print "<META HTTP-EQUIV=refresh CONTENT=\"1;URL=../index.html\">\n";
 $dbh->commit or die $DBI::errstr;
 

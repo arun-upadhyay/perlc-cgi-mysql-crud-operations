@@ -24,7 +24,36 @@ $(document).ready(function(){
       $("#datepicker").datepicker("setDate",new Date());
       $( "#datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
     });
+
+function getAppointments(){
 	
+	$(document).ready(function(){
+		var val = $('#searchvalueType').val();
+		$.ajax({ url: "/perl/cgi/get-appointments.cgi",
+				 data: { 'data_id': val },
+				dataType: 'json',
+				error: function (textStatus, errorThrown) {
+                alert("failed");
+				},
+				success: function(res){				
+				var tb="<table class='table table-striped'> <tr> <th> Date  </th> <th> Time </th> <th> Description </th></tr>";
+				for (var key in res) {
+				tb = tb + " <tr> ";
+					for (var key2 in res[key]){
+					tb = tb +  " <td> " +res[key][key2] + "</td> ";
+					}
+				}
+				document.getElementById("search-result").innerHTML =tb;
+				
+			
+        }});
+   
+});
+	
+	
+	return false;
+}
+/*
 // http ajax call
 $(document).ready(function(){
     $("#searchbttn").click(function(){
@@ -49,3 +78,4 @@ $(document).ready(function(){
         }});
     });
 });
+*/
