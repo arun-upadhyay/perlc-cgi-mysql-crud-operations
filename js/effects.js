@@ -7,7 +7,14 @@ $(document).ready(function() {
 	
 });
 
-// events when NEW button is clicked
+// Self invoking function for date picker
+  $(function() {
+      $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+1000" });
+      $("#datepicker").datepicker("setDate",new Date());
+      $( "#datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
+    });
+	
+// Events when NEW button is clicked
 $(document).ready(function(){
 	// hide add form on cancel button click
     $("#newButton").click(function(){
@@ -22,7 +29,7 @@ $(document).ready(function(){
 	
 });
 
-//events when CANCEL button is clicked
+//Events when CANCEL button is clicked
 $(document).ready(function(){
 	// hide add form on cancel button click
     $("#cancelButton").click(function(){
@@ -32,12 +39,6 @@ $(document).ready(function(){
     });
 });
 
-// self invoking function for date picker
-  $(function() {
-      $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+1000" });
-      $("#datepicker").datepicker("setDate",new Date());
-      $( "#datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
-    });
 // getAppointments() performs AJAX call to retrieve data from database.
 function getAppointments(){
 	$(document).ready(function(){
@@ -49,7 +50,7 @@ function getAppointments(){
                 alert("Sorry!!! AJAX Call failed.");
 				},
 				success: function(res){	
-				// build a simle html table
+				//build a simle html table
 				var tb="<table class='table table-striped'> <tr> <th> Date  </th> <th> Time </th> <th> Description </th></tr>";
 				for (var key in res) {
 				tb = tb + " <tr> ";
