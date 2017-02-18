@@ -1,3 +1,4 @@
+// form validation code(form is submitted only when all the fields are filled).
 function validateForm() {
 	var submitDes=true;
     var dt = document.forms["addForm"]["Date"].value;

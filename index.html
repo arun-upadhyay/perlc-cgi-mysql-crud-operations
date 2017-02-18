@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<!– Simple simple css design to HTML page –> 
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!– jquery.timepicker.js is used time picker on textbox –> 
+<script type="text/javascript" src="js/jquery.timepicker.js"></script>
+<!– jquery.timepicker.css  is used time CSS design for time picker textbox –> 
+<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+ <!– validate.js is used for form validation –> 
 <script src="js/validate.js"></script>
+ <!– effect.js is used for creating single page application, adding dynamic features to index.html –> 
 <script src="js/effects.js"></script>
 
 <title>Appointment Form</title
@@ -19,17 +25,16 @@
 <br>
 <br>
 <p>
-<button type="button" id="show" class="btn btn-primary">NEW</button>
+<h1> Appointment Registration System </h1> 
+<button type="button" id="newButton" class="btn btn-primary">NEW</button>
+<button type="button" id="cancelButton" class="btn btn-primary">CANCEL</button>
 </p>
 <div id="add-form">
-    <h2> Add form </h2>
-    <form method="post" name="addForm" action="/perl/cgi/add-appointment.cgi" onsubmit="return validateForm()">
+    <h2> Add Appointment </h2>
+	<!– Add new appointment to the database(initially hidden)  –> 
+    <form method="post" id="addForm" name="addForm" action="/perl/cgi/add-appointment.cgi" onsubmit="return validateForm()">
     <table class="table table-striped">
-	 <tr>
-             <td><input type="submit" name="submit" value=" ADD " /></td>
-			 <td><button id="hide">CANCEL</button></td>
-        </tr>
-        <tr>
+	    <tr>
             <td >Date</td>
             <td><input name="Date" type="text" id ="datepicker" /></td>
 			<td> <span id="errorDate" style=""> </span></td> 
@@ -37,7 +42,7 @@
 
         <tr>
             <td >Time</td>
-            <td><input name="Time" type="text" /></td>
+            <td><input name="Time" type="text" id="datepick" class="time"  /></td>
 			<td> <span id="errorTime"> </span></td> 
         </tr>
 
@@ -54,14 +59,17 @@
 	<br /> 
 	
 </div>
+<!– Search the appointment lists based on information provided the textbox –> 
 <div id="search-form" >	
 		<form action="post" onsubmit="return getAppointments()"> 
 		<input name="searchinfo" type="text" id ="searchvalueType" style="width: 300px;"/>	
-		<input type="submit" name="submit" id="searchbttn" />
+		<input type="submit" name="submit" id="searchbttn" value="SEARCH" />
 		</form>
 </div>
-
+<!– DOM area where data is populated dynamic without refreshing the page –> 
 <div id="search-result">
+  
+</table>
 </div>
 	
 </div>

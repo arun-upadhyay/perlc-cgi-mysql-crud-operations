@@ -8,7 +8,7 @@ my $q = CGI::Vars();
 my $dt = $q->{Date};
 my $tm = $q->{Time};
 my $des = $q->{Description};
-#remove trailing spaces using regular expression
+#remove trailing spaces u
 $dt =~ s/^\s*(.*?)\s*$/$1/;
 $tm =~ s/^\s*(.*?)\s*$/$1/;
 $des =~ s/^\s*(.*?)\s*$/$1/;
